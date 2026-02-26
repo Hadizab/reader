@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mami Read · deep storyteller</title>
+
+  <style>
+
+    body {
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      background-image: url("https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg");
+
+      background-size: cover;
+
+      background-repeat: no-repeat;
+
+      background-position: center center;
+
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+    .container {
+
+      width: 460px;
+
+      margin: 30px auto;
+
+      background-color: rgba(255, 255, 255, 0.9);
+
+      backdrop-filter: blur(6px);
+
+      padding: 30px 28px;
+
+      border-radius: 32px;
+
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 215, 175, 0.5) inset;
+
+      border: 1px solid rgba(255, 245, 235, 0.6);
+
+      transition: all 0.2s ease;
+
+    }
+
+    h1 {
+
+      color: #1e2b3c;
+
+      text-align: center;
+
+      font-size: 2.4rem;
+
+      font-weight: 600;
+
+      letter-spacing: -0.5px;
+
+      margin-top: 0;
+
+      margin-bottom: 20px;
+
+      text-shadow: 2px 2px 0 rgba(255, 215, 175, 0.7);
+
+      font-family: 'Times New Roman', 'Georgia', serif;
+
+      word-break: keep-all;
+
+    }
+
+    h1 span {
+
+      background: #2c3e4e;
+
+      color: #fae8d1;
+
+      font-size: 1.1rem;
+
+      padding: 0.2rem 0.8rem;
+
+      border-radius: 60px;
+
+      display: inline-block;
+
+      vertical-align: middle;
+
+      margin-left: 8px;
+
+      letter-spacing: 1px;
+
+      text-shadow: none;
+
+      font-family: 'Segoe UI', sans-serif;
+
+    }
+
+    textarea {
+
+      width: 100%;
+
+      height: 210px;
+
+      padding: 18px 18px;
+
+      border: none;
+
+      background: #fffaf2;
+
+      border-radius: 28px;
+
+      font-size: 1.1rem;
+
+      line-height: 1.5;
+
+      border: 2px solid #dbbd9a;
+
+      box-shadow: inset 0 4px 8px rgba(0,0,0,0.02);
+
+      resize: vertical;
+
+      font-family: 'Georgia', 'Times New Roman', serif;
+
+      color: #1f2a36;
+
+      outline: none;
+
+      transition: 0.15s;
+
+      box-sizing: border-box;
+
+    }
+
+    textarea:focus {
+
+      border-color: #8b6f4c;
+
+      background: #fffdf9;
+
+      box-shadow: 0 0 0 4px rgba(139, 111, 76, 0.2);
+
+    }
+
+    .button-group {
+
+      display: flex;
+
+      gap: 14px;
+
+      margin: 25px 0 10px;
+
+      justify-content: center;
+
+    }
+
+    button {
+
+      flex: 1 1 0;
+
+      padding: 14px 10px;
+
+      background: #3a4e5e;
+
+      border: none;
+
+      border-radius: 50px;
+
+      font-size: 1.3rem;
+
+      font-weight: 600;
+
+      color: #fef3e4;
+
+      letter-spacing: 0.5px;
+
+      cursor: pointer;
+
+      box-shadow: 0 6px 0 #1d2a33, 0 8px 16px rgba(0,0,0,0.2);
+
+      transition: 0.07s linear;
+
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 6px;
+
+    }
+
+    button:active {
+
+      transform: translateY(5px);
+
+      box-shadow: 0 1px 0 #1d2a33, 0 5px 12px rgba(0,0,0,0.2);
+
+    }
+
+    button.stop-btn {
+
+      background: #5e4c3a;
+
+      box-shadow: 0 6px 0 #3f3224;
+
+    }
+
+    button:hover {
+
+      filter: brightness(1.08);
+
+    }
+
+    .voice-hint {
+
+      text-align: center;
+
+      margin-top: 18px;
+
+      font-size: 0.95rem;
+
+      background: rgba(230, 215, 190, 0.6);
+
+      padding: 10px 16px;
+
+      border-radius: 60px;
+
+      color: #2d241b;
+
+      border: 1px solid #bba88b;
+
+      backdrop-filter: blur(4px);
+
+      font-weight: 500;
+
+    }
+
+    .voice-hint i {
+
+      font-style: normal;
+
+      display: inline-block;
+
+      background: #2c3e4e;
+
+      color: #ffe8d4;
+
+      padding: 0.2rem 1rem;
+
+      border-radius: 40px;
+
+      margin-left: 6px;
+
+      font-size: 0.9rem;
+
+    }
+
+    footer {
+
+      text-align: center;
+
+      font-size: 0.8rem;
+
+      color: #4d3e2e;
+
+      margin-top: 16px;
+
+      opacity: 0.8;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🎙️ Mami Read <span>storyteller</span></h1>
+
+  
+
+  <textarea id="inputText" placeholder="Paste your story, poem or any text …">The old lighthouse stood alone against the cliffs, its beam cutting through the salt mist like a memory refusing to fade. The keeper, a man whose voice had weathered a thousand storms, began his tale…</textarea>
+
+  
+
+  <div class="button-group">
+
+    <button onclick="speakDeepStory()" id="speakBtn">📖  Speak</button>
+
+    <button onclick="stopDeepSpeaking()" class="stop-btn">⏹️  Stop</button>
+
+  </div>
+
+  <div class="voice-hint">
+
+    ⚡ deep male narrator · bassy & warm
+
+    <i>🇺🇸</i>
+
+  </div>
+
+  <footer> — press speak, hear the voice of the deep — </footer>
+
+</div>
+
+<script>
+
+  (function() {
+
+    // ----- DEEP MALE STORYTELLER SETUP -----
+
+    let currentUtterance = null;
+
+    let voices = [];
+
+    let preferredVoiceFound = false;
+
+    let deepStoryVoice = null;      // will hold the selected voice
+
+    // list of target voice names (partial matches, from most‑storyteller to deep male)
+
+    const deepVoicePatterns = [
+
+      'Microsoft David',        // deep US English (Windows)
+
+      'Google UK English Male', // older male
+
+      'English (America) Male',
+
+      'Male (deep)',
+
+      'Daniel',                 // deeper UK voice (often)
+
+      'Arthur',                 // quite deep on some systems
+
+      'Alex',                   // older mac voice, relatively deep
+
+      'Fred',                   // deeper US
+
+      'Bruce',                  // explicitly deep
+
+      'Tom',                    // deep AU
+
+      'Rishi',                  // deeper indian english male
+
+      'Vicente',                // deep latin american?
+
+      'Pearce Brosnan'          // (the one you had commented) – very deep & storyteller
+
+    ];
+
+    // load voices and watch for changes (especially chrome)
+
+    function loadVoicesAndSetDefault() {
+
+      voices = speechSynthesis.getVoices();
+
+      if (!voices.length) return;   // might be empty at first, event will trigger
+
+      console.log('Voices loaded:', voices.map(v => v.name).join(', '));
+
+      // try to match a deep male voice by preferred list
+
+      for (let pattern of deepVoicePatterns) {
+
+        const lowerPattern = pattern.toLowerCase();
+
+        const matched = voices.find(voice => 
+
+          voice.name.toLowerCase().includes(lowerPattern) && 
+
+          !voice.name.toLowerCase().includes('female')   // avoid high pitch
+
+        );
+
+        if (matched) {
+
+          deepStoryVoice = matched;
+
+          preferredVoiceFound = true;
+
+          console.log('✅ Deep voice selected:', matched.name, matched.lang);
+
+          break;
+
+        }
+
+      }
+
+      // if none from pattern list, pick any male-ish or default US/UK voice with low pitch fallback
+
+      if (!preferredVoiceFound) {
+
+        // try to pick a default male: filter by lang (en) and non-female hints
+
+        const englishVoices = voices.filter(v => v.lang.startsWith('en-'));
+
+        
+
+        // prefer microsoft david / google UK male / alex / daniel
+
+        const fallbackCandidates = englishVoices.filter(v => 
+
+          v.name.includes('David') || v.name.includes('Daniel') || 
+
+          v.name.includes('Alex') || v.name.includes('Fred') || 
+
+          v.name.includes('Arthur') || v.name.includes('Bruce') ||
+
+          v.name.includes('Male') || v.name.includes('Google UK') || 
+
+          v.name.includes('Samantha') === false   // samantha is too bright, but we want male
+
+        );
+
+        
+
+        // remove obvious female names (Samantha, Victoria, Fiona, etc)
+
+        const maleish = fallbackCandidates.filter(v => 
+
+          !v.name.match(/(Samantha|Victoria|Fiona|Karen|Moira|Tessa|Veena|Nora|Zira|Hazel|Susan|Jennifer)/i)
+
+        );
+
+        if (maleish.length > 0) {
+
+          deepStoryVoice = maleish[0];   // pick first candidate
+
+        } else if (englishVoices.length > 0) {
+
+          // last resort: just first english voice (but will maybe be female, we'll set low pitch)
+
+          deepStoryVoice = englishVoices[0];
+
+        } else if (voices.length > 0) {
+
+          deepStoryVoice = voices[0];    // any language, but we try to adjust pitch
+
+        }
+
+      }
+
+      // if we never found a voice, just leave null (will use default)
+
+    }
+
+    // initial load (voices may be ready immediately)
+
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+
+      speechSynthesis.onvoiceschanged = function() {
+
+        loadVoicesAndSetDefault();
+
+      };
+
+    }
+
+    // immediate attempt (for already loaded)
+
+    loadVoicesAndSetDefault();
+
+    // Helper to stop ongoing speech
+
+    function haltSpeech() {
+
+      if (currentUtterance) {
+
+        currentUtterance.onend = null;  // remove callback to avoid resetting utterance after cancel
+
+        speechSynthesis.cancel();
+
+        currentUtterance = null;
+
+      }
+
+    }
+
+    // expose functions globally
+
+    window.speakDeepStory = function() {
+
+      const inputElem = document.getElementById('inputText');
+
+      let text = inputElem.value.trim();
+
+      if (text === '') {
+
+        // if empty, use a sample story snippet
+
+        text = 'Once upon a time, in a land wrapped in mist, an old mariner spoke of the deep. "The sea remembers everything," he rumbled, his voice like distant thunder.';
+
+        // optionally show a hint
+
+        console.warn('Empty text, using default story line');
+
+      }
+
+      // cancel any ongoing speech before starting new
+
+      haltSpeech();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      currentUtterance = utterance;
+
+      // ---- Deep male storytelling settings ----
+
+      // low rate (slow, storyteller) & low pitch (deeper)
+
+      utterance.rate = 0.82;          // comfortably slow, narrative
+
+      utterance.pitch = 0.65;          // DEEP – low pitch (0 is lowest possible, 1 normal, 2 max)
+
+      utterance.volume = 1.0;
+
+      // If we have found a deepStoryVoice candidate, set it
+
+      if (deepStoryVoice) {
+
+        utterance.voice = deepStoryVoice;
+
+      } else {
+
+        // if still no voice selected, we might try to pick one from voices now (maybe onvoiceschanged hasn't fired)
+
+        const availableVoices = speechSynthesis.getVoices();
+
+        if (availableVoices.length > 0 && !deepStoryVoice) {
+
+          // try again quickly
+
+          for (let pattern of deepVoicePatterns) {
+
+            const match = availableVoices.find(v => 
+
+              v.name.toLowerCase().includes(pattern.toLowerCase()) &&
+
+              !v.name.toLowerCase().includes('female')
+
+            );
+
+            if (match) {
+
+              deepStoryVoice = match;
+
+              utterance.voice = deepStoryVoice;
+
+              break;
+
+            }
+
+          }
+
+          // fallback: first English male-ish
+
+          if (!deepStoryVoice) {
+
+            const firstEnglishMale = availableVoices.find(v => 
+
+              v.lang.startsWith('en') && !v.name.match(/female|samantha|victoria|fiona|zira|karen/i)
+
+            );
+
+            if (firstEnglishMale) {
+
+              utterance.voice = firstEnglishMale;
+
+              deepStoryVoice = firstEnglishMale;   // remember
+
+            } else if (availableVoices[0]) {
+
+              utterance.voice = availableVoices[0];
+
+            }
+
+          }
+
+        }
+
+      }
+
+      // additional tweak: some voices interpret pitch differently; but we keep at 0.65 for depth
+
+      utterance.onend = function() {
+
+        currentUtterance = null;
+
+      };
+
+      utterance.onerror = function() {
+
+        currentUtterance = null;
+
+      };
+
+      // Ensure that any previous synthesis is fully cancelled (extra safety)
+
+      speechSynthesis.cancel(); // double cancel (sometimes necessary in edge)
+
+      window.speechSynthesis.speak(utterance);
+
+    };
+
+    window.stopDeepSpeaking = function() {
+
+      haltSpeech();
+
+    };
+
+    // Extra edge: in some browsers, speaking after a while fails if we don't reset.
+
+    // Also handle if the voice list loads later — we update reference if better voice appears.
+
+    if (speechSynthesis.onvoiceschanged) {
+
+      const originalHandler = speechSynthesis.onvoiceschanged;
+
+      speechSynthesis.onvoiceschanged = function(ev) {
+
+        if (originalHandler) originalHandler.call(this, ev);
+
+        // after loading, if we haven't locked a voice, or want to upgrade
+
+        if (!deepStoryVoice || !preferredVoiceFound) {
+
+          const newVoices = speechSynthesis.getVoices();
+
+          // re-run selection
+
+          for (let pattern of deepVoicePatterns) {
+
+            const match = newVoices.find(v => 
+
+              v.name.toLowerCase().includes(pattern.toLowerCase()) &&
+
+              !v.name.toLowerCase().includes('female')
+
+            );
+
+            if (match) {
+
+              deepStoryVoice = match;
+
+              preferredVoiceFound = true;
+
+              break;
+
+            }
+
+          }
+
+        }
+
+      };
+
+    }
+
+    // Safety: cancel any rogue speech on page unload
+
+    window.addEventListener('beforeunload', function() {
+
+      speechSynthesis.cancel();
+
+    });
+
+  })();
+
+</script>
+
+<!-- additional tiny fallback: if button click tries to speak while voices not loaded, the speak function will re-attempt selection -->
+
+</body>
+
+</html>
